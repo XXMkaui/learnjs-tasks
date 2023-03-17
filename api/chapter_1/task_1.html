@@ -1,0 +1,14 @@
+<!doctype html>
+<script>
+
+  async function getUsers(names) {
+    const url = "https://api.github.com/users/";
+    const names = names.map(i => fetch(url + i)
+      .then(res => res.ok ? res.json() : null)
+      .catch(err => null))
+    return await Promise.all(names)
+  }
+
+</script>
+
+</html>
